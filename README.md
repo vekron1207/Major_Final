@@ -19,7 +19,7 @@ Authenti-Kator-2.0 is an Android application that allows users to scan QR codes 
 ## fabric-firebase-logger
 fabric-firebase-logger is an application that listens for changes in the Firebase DB, particularly the change in product status (isAuthenticated). The DB structure is as follows:
 
-\```json
+```json
 "product_1": {
     "isAuthenticated": false,
     "product_type": "sneakers",
@@ -27,7 +27,7 @@ fabric-firebase-logger is an application that listens for changes in the Firebas
     "authenticated_by": null,
     "authenticated_at": null
 }
-\```
+```
 
 Whenever there is a change detected in the DB, it triggers the `createProduct` method in the chain code.
 
