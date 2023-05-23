@@ -1,0 +1,93 @@
+{
+  "Admin@auth.com": {
+    "key": "Admin@auth.com",
+    "org": "auth.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/auth.com/users/Admin@auth.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/auth.com/users/Admin@auth.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "Admin@manufacturer.auth.com": {
+    "key": "Admin@manufacturer.auth.com",
+    "org": "manufacturer.auth.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/manufacturer.auth.com/users/Admin@manufacturer.auth.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/manufacturer.auth.com/users/Admin@manufacturer.auth.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "Admin@user.auth.com": {
+    "key": "Admin@user.auth.com",
+    "org": "user.auth.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/user.auth.com/users/Admin@user.auth.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/user.auth.com/users/Admin@user.auth.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "auth.com": {
+    "key": "auth.com",
+    "org": "auth.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/auth.com/ca/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/auth.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "auth.com.tlsca": {
+    "key": "auth.com",
+    "org": "auth.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/auth.com/tlsca/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/auth.com/tlsca/priv_sk",
+    "type": "tlsca"
+  },
+  "manufacturer.auth.com": {
+    "key": "manufacturer.auth.com",
+    "org": "manufacturer.auth.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/manufacturer.auth.com/ca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/manufacturer.auth.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "manufacturer.auth.com.tlsca": {
+    "key": "manufacturer.auth.com",
+    "org": "manufacturer.auth.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/manufacturer.auth.com/tlsca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/manufacturer.auth.com/tlsca/priv_sk",
+    "type": "tlsca"
+  },
+  "orderer1.auth.com": {
+    "key": "orderer1.auth.com",
+    "org": "auth.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/auth.com/orderers/orderer1.auth.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/auth.com/orderers/orderer1.auth.com/msp/keystore/priv_sk",
+    "type": "orderers"
+  },
+  "orderer2.auth.com": {
+    "key": "orderer2.auth.com",
+    "org": "auth.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/auth.com/orderers/orderer2.auth.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/auth.com/orderers/orderer2.auth.com/msp/keystore/priv_sk",
+    "type": "orderers"
+  },
+  "peer1.manufacturer.auth.com": {
+    "key": "peer1.manufacturer.auth.com",
+    "org": "manufacturer.auth.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/manufacturer.auth.com/peers/peer1.manufacturer.auth.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/manufacturer.auth.com/peers/peer1.manufacturer.auth.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer1.user.auth.com": {
+    "key": "peer1.user.auth.com",
+    "org": "user.auth.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/user.auth.com/peers/peer1.user.auth.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/user.auth.com/peers/peer1.user.auth.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "user.auth.com": {
+    "key": "user.auth.com",
+    "org": "user.auth.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/user.auth.com/ca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/user.auth.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "user.auth.com.tlsca": {
+    "key": "user.auth.com",
+    "org": "user.auth.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/user.auth.com/tlsca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/user.auth.com/tlsca/priv_sk",
+    "type": "tlsca"
+  }
+}

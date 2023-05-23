@@ -1,0 +1,165 @@
+{
+  "name": "165280dd49_net",
+  "x-comment-0": "ROOTPATH should be set to the absolute path of crypto material starting directory",
+  "x-comment-1": "for example: export ROOTPATH=/home/ubuntu/mywork/vars/keyfiles",
+  "x-type": "hlfv-2.3.0",
+  "version": "1.0.0",
+  "client": {
+    "organization": "user.auth.com",
+    "cryptoconfig": {
+      "path": "${ROOTPATH}"
+    },
+    "connection": {
+      "timeout": {
+        "peer": { "endorser": "300", "eventHub": "300", "eventReg": "300"},
+        "orderer": "300"
+      }
+    }
+  },
+  "channels": {
+    "authchannel": {
+      "orderers": [
+        "orderer1.auth.com",
+        "orderer2.auth.com"
+      ],
+      "peers": {
+        "peer1.manufacturer.auth.com": {
+          "endorsingPeer": true, "chaincodeQuery": true, "eventSource": true
+        },
+        "peer1.user.auth.com": {
+          "endorsingPeer": true, "chaincodeQuery": true, "eventSource": true
+        }
+      }
+    }
+  },
+  "organizations": {
+    "auth.com": {
+      "mspid": "auth-com",
+      "cryptoPath": "ordererOrganizations/auth.com/users/{username}@auth.com/msp",
+      "orderers": [
+        "orderer1.auth.com",
+        "orderer2.auth.com"
+      ],
+      "certificateAuthorities": [
+      ]
+    },
+    "manufacturer.auth.com": {
+      "mspid": "manufacturer-auth-com",
+      "cryptoPath": "peerOrganizations/manufacturer.auth.com/users/{username}@manufacturer.auth.com/msp",
+      "peers": [
+        "peer1.manufacturer.auth.com"
+      ],
+      "certificateAuthorities": [
+       "ca1.manufacturer.auth.com"
+      ]
+    },
+    "user.auth.com": {
+      "mspid": "user-auth-com",
+      "cryptoPath": "peerOrganizations/user.auth.com/users/{username}@user.auth.com/msp",
+      "peers": [
+        "peer1.user.auth.com"
+      ],
+      "certificateAuthorities": [
+       "ca1.user.auth.com"
+      ]
+    }
+  },
+  "orderers": {
+    "orderer1.auth.com": {
+      "url": "grpcs://192.168.233.129:7006",
+      "grpcOptions": {
+        "ssl-target-name-override": "orderer1.auth.com"
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIICkTCCAjagAwIBAgIUedUH5qsP1qPEvta7y/6Pqu2hX0cwCgYIKoZIzj0EAwIw\nZDELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMREwDwYDVQQKDAhhdXRoLmNvbTEXMBUGA1UEAwwOdGxzY2EuYXV0\naC5jb20wHhcNMjMwNTIyMDkxNDM3WhcNMzMwNTE5MDkxNDM3WjBkMQswCQYDVQQG\nEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xpbmExEDAOBgNVBAcMB1JhbGVpZ2gx\nETAPBgNVBAoMCGF1dGguY29tMRcwFQYDVQQDDA50bHNjYS5hdXRoLmNvbTBZMBMG\nByqGSM49AgEGCCqGSM49AwEHA0IABLH5Be7nURG+Y1q8ry3VCryrnxVfQ/Jn4R5Z\nAg3Lm367Lh53GDWyvE0KhF/I1eNkBX+gU/7jrDck1q8pB0UiF9qjgcUwgcIwHQYD\nVR0OBBYEFGG59oya9wGtoXU8A31OLv3v76/nMB8GA1UdIwQYMBaAFGG59oya9wGt\noXU8A31OLv3v76/nMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQDAgGmMB0G\nA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBABgNVHREEOTA3hwTAqOmBgg50\nbHNjYS5hdXRoLmNvbYIOdGxzY2EtYXV0aC1jb22CCWxvY2FsaG9zdIcEfwAAATAK\nBggqhkjOPQQDAgNJADBGAiEAlNyNSyb0OOl6dAEBpsJ+U1ej9PNlead878NjUXJ0\nlTcCIQCARTD8EEqF9jsZmsrd886E/b4u2CKhpJRoxwaEClr5rg==\n-----END CERTIFICATE-----"
+      }
+    },
+    "orderer2.auth.com": {
+      "url": "grpcs://192.168.233.129:7007",
+      "grpcOptions": {
+        "ssl-target-name-override": "orderer2.auth.com"
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIICkTCCAjagAwIBAgIUedUH5qsP1qPEvta7y/6Pqu2hX0cwCgYIKoZIzj0EAwIw\nZDELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMREwDwYDVQQKDAhhdXRoLmNvbTEXMBUGA1UEAwwOdGxzY2EuYXV0\naC5jb20wHhcNMjMwNTIyMDkxNDM3WhcNMzMwNTE5MDkxNDM3WjBkMQswCQYDVQQG\nEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xpbmExEDAOBgNVBAcMB1JhbGVpZ2gx\nETAPBgNVBAoMCGF1dGguY29tMRcwFQYDVQQDDA50bHNjYS5hdXRoLmNvbTBZMBMG\nByqGSM49AgEGCCqGSM49AwEHA0IABLH5Be7nURG+Y1q8ry3VCryrnxVfQ/Jn4R5Z\nAg3Lm367Lh53GDWyvE0KhF/I1eNkBX+gU/7jrDck1q8pB0UiF9qjgcUwgcIwHQYD\nVR0OBBYEFGG59oya9wGtoXU8A31OLv3v76/nMB8GA1UdIwQYMBaAFGG59oya9wGt\noXU8A31OLv3v76/nMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQDAgGmMB0G\nA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBABgNVHREEOTA3hwTAqOmBgg50\nbHNjYS5hdXRoLmNvbYIOdGxzY2EtYXV0aC1jb22CCWxvY2FsaG9zdIcEfwAAATAK\nBggqhkjOPQQDAgNJADBGAiEAlNyNSyb0OOl6dAEBpsJ+U1ej9PNlead878NjUXJ0\nlTcCIQCARTD8EEqF9jsZmsrd886E/b4u2CKhpJRoxwaEClr5rg==\n-----END CERTIFICATE-----"
+      }
+    }
+  },
+  "peers": {
+    "peer1.manufacturer.auth.com": {
+      "url": "grpcs://192.168.233.129:7002",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer1.manufacturer.auth.com"
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIIC4jCCAoigAwIBAgIUU2LiVYXjCBsITDNd/khbds9u8R0wCgYIKoZIzj0EAwIw\nfzELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMR4wHAYDVQQKDBVtYW51ZmFjdHVyZXIuYXV0aC5jb20xJTAjBgNV\nBAMMHHRsc2NhMS5tYW51ZmFjdHVyZXIuYXV0aC5jb20wHhcNMjMwNTIyMDkxNDUx\nWhcNMzMwNTE5MDkxNDUxWjB/MQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGgg\nQ2Fyb2xpbmExEDAOBgNVBAcMB1JhbGVpZ2gxHjAcBgNVBAoMFW1hbnVmYWN0dXJl\nci5hdXRoLmNvbTElMCMGA1UEAwwcdGxzY2ExLm1hbnVmYWN0dXJlci5hdXRoLmNv\nbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABMFK1+1Lhfx0UMrZH+kGBOpRtgE+\n2/yTccocxH5m+s46BwBheyMERIX8B4j/JPPrLrb2g+JktkQXTDOo8d0DWSOjgeEw\ngd4wHQYDVR0OBBYEFK5YHk/MthhvuArKcjetm02xdEI4MB8GA1UdIwQYMBaAFK5Y\nHk/MthhvuArKcjetm02xdEI4MA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQD\nAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBcBgNVHREEVTBThwTA\nqOmBghx0bHNjYTEubWFudWZhY3R1cmVyLmF1dGguY29tghx0bHNjYTEtbWFudWZh\nY3R1cmVyLWF1dGgtY29tgglsb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSAAw\nRQIhAIQK4YOFgzVGq8rpvjHAowSPodgQ1otEv8B3RxjNHqKAAiBvsvC4OMknzQTW\ntsoUcmW+9tnE/BVA3HoIgpHgI/6YxA==\n-----END CERTIFICATE-----"
+      }
+    },
+    "peer1.user.auth.com": {
+      "url": "grpcs://192.168.233.129:7003",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer1.user.auth.com"
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIICsTCCAligAwIBAgIUfcjEU++kiHRwWbyeAgOyohPbotowCgYIKoZIzj0EAwIw\nbzELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRYwFAYDVQQKDA11c2VyLmF1dGguY29tMR0wGwYDVQQDDBR0bHNj\nYTEudXNlci5hdXRoLmNvbTAeFw0yMzA1MjIwOTE1MDJaFw0zMzA1MTkwOTE1MDJa\nMG8xCzAJBgNVBAYTAlVTMRcwFQYDVQQIDA5Ob3J0aCBDYXJvbGluYTEQMA4GA1UE\nBwwHUmFsZWlnaDEWMBQGA1UECgwNdXNlci5hdXRoLmNvbTEdMBsGA1UEAwwUdGxz\nY2ExLnVzZXIuYXV0aC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASfAH6q\nk9kkAHRzad/lqelj5XyF0wXgyc4J0oaNB+QInAdklTEA6obQhWFdakppXIvjE7/L\noZjmdnaeZpWl17Yho4HRMIHOMB0GA1UdDgQWBBQILfLjewvDTRh+uKkRSiztQw2j\nUjAfBgNVHSMEGDAWgBQILfLjewvDTRh+uKkRSiztQw2jUjAPBgNVHRMBAf8EBTAD\nAQH/MA4GA1UdDwEB/wQEAwIBpjAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUH\nAwIwTAYDVR0RBEUwQ4cEwKjpgYIUdGxzY2ExLnVzZXIuYXV0aC5jb22CFHRsc2Nh\nMS11c2VyLWF1dGgtY29tgglsb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDRwAw\nRAIfeJp7THBnK9GnvbAxaVzwWMYIBP0J0gBt8INSmA95mQIhAJ4i859idyecOYuY\nB4yIip5ljggcWx1ePWJ84/2jG2OE\n-----END CERTIFICATE-----"
+      }
+    }
+  },
+  "certificateAuthorities": {
+    "ca1.manufacturer.auth.com": {
+      "url": "https://192.168.233.129:7000",
+      "tlsCACerts": {
+        "pem": ["-----BEGIN CERTIFICATE-----\nMIIC1zCCAnygAwIBAgIUXWnlzQyDP546Hhci/wZuasyGRWYwCgYIKoZIzj0EAwIw\nfDELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMR4wHAYDVQQKDBVtYW51ZmFjdHVyZXIuYXV0aC5jb20xIjAgBgNV\nBAMMGWNhMS5tYW51ZmFjdHVyZXIuYXV0aC5jb20wHhcNMjMwNTIyMDkxNDUxWhcN\nMzMwNTE5MDkxNDUxWjB8MQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fy\nb2xpbmExEDAOBgNVBAcMB1JhbGVpZ2gxHjAcBgNVBAoMFW1hbnVmYWN0dXJlci5h\ndXRoLmNvbTEiMCAGA1UEAwwZY2ExLm1hbnVmYWN0dXJlci5hdXRoLmNvbTBZMBMG\nByqGSM49AgEGCCqGSM49AwEHA0IABD2XbpINuIm7cHwibldqz1148l3FgN6LBoSu\n9oqYqgur8zYCA+Xcho2eDxmBMJ2QStXwPo4t20LLe4i3sLz9Do+jgdswgdgwHQYD\nVR0OBBYEFEm8VSA/UFcT8f0RGBaUGwZnJ42EMB8GA1UdIwQYMBaAFEm8VSA/UFcT\n8f0RGBaUGwZnJ42EMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQDAgGmMB0G\nA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBWBgNVHREETzBNhwTAqOmBghlj\nYTEubWFudWZhY3R1cmVyLmF1dGguY29tghljYTEtbWFudWZhY3R1cmVyLWF1dGgt\nY29tgglsb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSQAwRgIhAMIbwqAJUTbt\nEi0ZWWnhXlSL19Kl5yNIUc9BKw4BZ9I6AiEA+BttIA0Jpk8mRz2PwTq6AXAqfKby\nWe3dSZMTGZ6hqlM=\n-----END CERTIFICATE-----"]
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    },
+    "ca1.user.auth.com": {
+      "url": "https://192.168.233.129:7001",
+      "tlsCACerts": {
+        "pem": ["-----BEGIN CERTIFICATE-----\nMIICpjCCAkygAwIBAgIUYGCSmz+9J3PzW6l6cZv2xc6DirUwCgYIKoZIzj0EAwIw\nbDELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRYwFAYDVQQKDA11c2VyLmF1dGguY29tMRowGAYDVQQDDBFjYTEu\ndXNlci5hdXRoLmNvbTAeFw0yMzA1MjIwOTE1MDJaFw0zMzA1MTkwOTE1MDJaMGwx\nCzAJBgNVBAYTAlVTMRcwFQYDVQQIDA5Ob3J0aCBDYXJvbGluYTEQMA4GA1UEBwwH\nUmFsZWlnaDEWMBQGA1UECgwNdXNlci5hdXRoLmNvbTEaMBgGA1UEAwwRY2ExLnVz\nZXIuYXV0aC5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQYMTyGby42f6jR\n9GZTEf6D2ZrcedSGfDQTR6NbYgMMY4TiKYITQY6xe8Ym/5mHcNrFLB9+2CjgFnd5\nZJQWv82bo4HLMIHIMB0GA1UdDgQWBBR0cIPuf+oaSl/khj+XUVZfp8jGsjAfBgNV\nHSMEGDAWgBR0cIPuf+oaSl/khj+XUVZfp8jGsjAPBgNVHRMBAf8EBTADAQH/MA4G\nA1UdDwEB/wQEAwIBpjAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwRgYD\nVR0RBD8wPYcEwKjpgYIRY2ExLnVzZXIuYXV0aC5jb22CEWNhMS11c2VyLWF1dGgt\nY29tgglsb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSAAwRQIgeyKqGUpgtDTr\nFPB07KFrqj4XMuurfpz8QdsNOqKVw8YCIQCTLCCQG++pAulCXxzwc52T4lT09aQv\n8rZq8Byw9evdtA==\n-----END CERTIFICATE-----"]
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    }
+  },
+  "entityMatchers": {
+    "orderer": [
+      { "mappedHost": "orderer1.auth.com",
+        "pattern": "(\\w*)orderer1.auth.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "orderer1.auth.com",
+        "urlSubstitutionExp": "192.168.233.129:7006"
+      },
+      { "mappedHost": "orderer2.auth.com",
+        "pattern": "(\\w*)orderer2.auth.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "orderer2.auth.com",
+        "urlSubstitutionExp": "192.168.233.129:7007"
+      }
+    ],
+    "peer": [
+      { "mappedHost": "peer1.manufacturer.auth.com",
+        "pattern": "(\\w*)peer1.manufacturer.auth.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "peer1.manufacturer.auth.com",
+        "urlSubstitutionExp": "192.168.233.129:7002"
+      },
+      { "mappedHost": "peer1.user.auth.com",
+        "pattern": "(\\w*)peer1.user.auth.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "peer1.user.auth.com",
+        "urlSubstitutionExp": "192.168.233.129:7003"
+      }
+    ],
+  "certificateAuthorities": [
+      { "mappedHost": "ca1.manufacturer.auth.com",
+        "pattern": "(\\w*)ca1.manufacturer.auth.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "ca1.manufacturer.auth.com",
+        "urlSubstitutionExp": "192.168.233.129:7000"
+      },
+      { "mappedHost": "ca1.user.auth.com",
+        "pattern": "(\\w*)ca1.user.auth.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "ca1.user.auth.com",
+        "urlSubstitutionExp": "192.168.233.129:7001"
+      }
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Authenti-Kator2.0</string>
+    <string name="started_title">Hello!</string>
+    <string name="started_sub_title">
+        Nice to see you, Join the Authenti-Kator!
+        <br><b>Login</b> If you already have an account.</br>
+        <br><b>Register</b> to get started.</br>
+    </string>
+    <string name="illustration_img">Illustration Image</string>
+    <string name="btn_register">REGISTER</string>
+    <string name="btn_login">LOGIN</string>
+    <string name="login_title">Login to Authenti-kator</string>
+    <string name="login_sub_title">
+        <font color="#00C9BB"><b>Login</b></font> if you already have an account with us.
+    </string>
+    <string name="login_email">Enter Email or username</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="login_forgot_pw">Forgot Password?</string>
+    <string name="login_havent_account">
+        I don\'t have an account. <font color="#00C9BB"><b>Register</b></font>
+    </string>
+    <string name="register_title">Create account</string>
+    <string name="register_sub_title"><font color="#00C9BB"><b>Register</b></font> to get started.
+    </string>
+    <string name="register_fullname">Enter your name</string>
+    <string name="register_email">Enter email</string>
+    <string name="register_username">Enter username</string>
+    <string name="register_password">Enter Password</string>
+    <string name="register_confirm_password">ReType your password</string>
+    <string name="register_have_account">
+        I already have an account. <font color="#00C9BB"><b>Login</b></font>
+    </string>
+    <string name="home_sub_title">Welcome Home</string>
+    <string name="home_btn_logout">LOGOUT</string>
+    <string name="reset_pw">Reset your Password</string>
+    <string name="reset_pw_sub_title"><font color="#00C9BB">Reset Password</font> if you fogot your password.</string>
+    <string name="btn_reset_pw">Reset Password</string>
+    <string name="back_to_login">
+        Back to <font color="#00C9BB"><b>Login</b></font>
+    </string>
+    <string name="have_key">
+        I already have a key. <font color="#00C9BB"><b>Authenticate</b></font>
+    </string>
+    <string name="havent_key">
+        I don\'t have a key. <font color="#00C9BB"><b>Get Key</b></font>
+    </string>
+    <string name="home_title">Welcome to the <font color="#00C9BB">Authenticator</font>, Let\'s get you started.</string>
+    <string name="serialKey_title">Please enter you secret key.</string>
+    <string name="serial_key">Serial key</string>
+    <string name="serial_key_not_have">
+        I don\'t have a Serial Key. <font color="#00C9BB"><b>Get Key</b></font>
+    </string>
+    <string name="have_not_key_get_key">
+        Please scan the barcode or QR Code. <font color="#00C9BB"><b>Get Key</b></font>
+    </string>
+    <string name="scan_btn">Scan</string>
+    <string name="iluss_des">qrCodeImage</string>
+    <string name="have_key_already">
+        I already have the key <font color="#00C9BB"><b>Authenticate</b></font>
+    </string>
+    <string name="scanner_desc">Scanner</string>
+    <string name="camera_view_desc">Camera view</string>
+    <string name="visit_link_desc">Visit Link</string>
+    <string name="authenticate_btn_str">Authenticate</string>
+</resources>

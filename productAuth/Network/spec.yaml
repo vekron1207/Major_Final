@@ -1,0 +1,17 @@
+fabric:
+  cas:
+  - "ca1.manufacturer.auth.com"
+  - "ca1.user.auth.com"
+  peers:
+  - "peer1.manufacturer.auth.com"
+  - "peer1.user.auth.com"
+  orderers:
+  - "orderer1.auth.com"
+  - "orderer2.auth.com"
+settings:
+  ca:
+    FABRIC_LOGGING SPEC: DEBUG
+  peer:
+    FABRIC LOGGING SPEC: DEBUG
+  orderer:
+    FABRIC_LOGGING SPEC: DEBUG

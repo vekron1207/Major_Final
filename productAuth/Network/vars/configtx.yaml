@@ -1,0 +1,175 @@
+---
+Organizations:
+  - &auth-com
+      Name: auth-com
+      ID: auth-com
+      MSPDir: keyfiles/ordererOrganizations/auth.com/msp
+      Policies:
+        Readers:
+          Type: Signature
+          Rule: "OR('auth-com.member')"
+        Writers:
+          Type: Signature
+          Rule: "OR('auth-com.member')"
+        Admins:
+          Type: Signature
+          Rule: "OR('auth-com.admin')"
+  - &manufacturer-auth-com
+      Name: manufacturer-auth-com
+      ID: manufacturer-auth-com
+      MSPDir: keyfiles/peerOrganizations/manufacturer.auth.com/msp
+      Policies:
+        Readers:
+          Type: Signature
+          Rule: "OR('manufacturer-auth-com.admin', 'manufacturer-auth-com.peer', 'manufacturer-auth-com.client')"
+        Writers:
+          Type: Signature
+          Rule: "OR('manufacturer-auth-com.admin', 'manufacturer-auth-com.client')"
+        Admins:
+          Type: Signature
+          Rule: "OR('manufacturer-auth-com.admin')"
+        Endorsement:
+          Type: Signature
+          Rule: "OR('manufacturer-auth-com.peer')"
+
+      AnchorPeers:
+      - Host: 192.168.233.129
+        Port: 7002
+  - &user-auth-com
+      Name: user-auth-com
+      ID: user-auth-com
+      MSPDir: keyfiles/peerOrganizations/user.auth.com/msp
+      Policies:
+        Readers:
+          Type: Signature
+          Rule: "OR('user-auth-com.admin', 'user-auth-com.peer', 'user-auth-com.client')"
+        Writers:
+          Type: Signature
+          Rule: "OR('user-auth-com.admin', 'user-auth-com.client')"
+        Admins:
+          Type: Signature
+          Rule: "OR('user-auth-com.admin')"
+        Endorsement:
+          Type: Signature
+          Rule: "OR('user-auth-com.peer')"
+
+      AnchorPeers:
+      - Host: 192.168.233.129
+        Port: 7003
+
+Capabilities:
+  Channel: &ChannelCapabilities
+    V2_0: true
+
+  Orderer: &OrdererCapabilities
+    V2_0: true
+
+  Application: &ApplicationCapabilities
+    V2_0: true
+
+Application: &ApplicationDefaults
+  Organizations:
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+    LifecycleEndorsement:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Endorsement"
+    Endorsement:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Endorsement"
+
+  Capabilities:
+    <<: *ApplicationCapabilities
+
+Orderer: &OrdererDefaults
+  OrdererType: etcdraft
+
+  BatchTimeout: 2s
+
+  BatchSize:
+    MaxMessageCount: 10
+    AbsoluteMaxBytes: 99 MB
+    PreferredMaxBytes: 512 KB
+
+  Addresses:
+  - 192.168.233.129:7006
+  - 192.168.233.129:7007
+  EtcdRaft:
+    Consenters:
+    - Host: 192.168.233.129
+      Port: 7006
+      ClientTLSCert: keyfiles/ordererOrganizations/auth.com/orderers/orderer1.auth.com/tls/server.crt
+      ServerTLSCert: keyfiles/ordererOrganizations/auth.com/orderers/orderer1.auth.com/tls/server.crt
+    - Host: 192.168.233.129
+      Port: 7007
+      ClientTLSCert: keyfiles/ordererOrganizations/auth.com/orderers/orderer2.auth.com/tls/server.crt
+      ServerTLSCert: keyfiles/ordererOrganizations/auth.com/orderers/orderer2.auth.com/tls/server.crt
+  Organizations:
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+    BlockValidation:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+
+Channel: &ChannelDefaults
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+
+  Capabilities:
+    <<: *ChannelCapabilities
+
+Profiles:
+  OrgChannel:
+    Consortium: SampleConsortium
+    <<: *ChannelDefaults
+    Application:
+      <<: *ApplicationDefaults
+      Organizations:
+      - *manufacturer-auth-com
+      - *user-auth-com
+      Capabilities:
+        <<: *ApplicationCapabilities
+
+  OrdererGenesis:
+    <<: *ChannelDefaults
+    Capabilities:
+      <<: *ChannelCapabilities
+    Orderer:
+      <<: *OrdererDefaults
+      Organizations:
+      - *auth-com
+      Capabilities:
+        <<: *OrdererCapabilities
+    Application:
+      <<: *ApplicationDefaults
+      Organizations:
+      - <<: *auth-com
+    Consortiums:
+      SampleConsortium:
+        Organizations:
+        - *manufacturer-auth-com
+        - *user-auth-com

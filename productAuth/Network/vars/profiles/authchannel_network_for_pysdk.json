@@ -1,0 +1,118 @@
+{
+  "name": "fabric-network",
+  "description": "Generated network configuration file",
+  "version": "0.1",
+  "client": {
+    "organization": "user.auth.com",
+    "credentialStore": {
+      "path": "/tmp/hfc-kvs",
+      "cryptoStore": {
+        "path": "/tmp/hfc-cvs"
+      },
+      "wallet": "wallet-name"
+    }
+  },
+  "organizations": {
+    "auth.com": {
+      "mspid": "auth-com",
+      "orderers": [
+        "orderer1.auth.com",
+        "orderer2.auth.com"
+      ],
+      "users": {
+        "Admin": {
+          "cert": "/keyfiles/ordererOrganizations/auth.com/users/Admin@auth.com/msp/signcerts/Admin@auth.com-cert.pem",
+          "private_key": "/keyfiles/ordererOrganizations/auth.com/users/Admin@auth.com/msp/keystore/priv_sk"
+        }
+      }
+    },
+    "manufacturer.auth.com": {
+      "mspid": "manufacturer-auth-com",
+      "peers": [
+        "peer1.manufacturer.auth.com"
+      ],
+      "users": {
+        "Admin": {
+          "cert": "/keyfiles/peerOrganizations/manufacturer.auth.com/users/Admin@manufacturer.auth.com/msp/signcerts/Admin@manufacturer.auth.com-cert.pem",
+          "private_key": "/keyfiles/peerOrganizations/manufacturer.auth.com/users/Admin@manufacturer.auth.com/msp/keystore/priv_sk"
+        }
+      }
+    },
+    "user.auth.com": {
+      "mspid": "user-auth-com",
+      "peers": [
+        "peer1.user.auth.com"
+      ],
+      "users": {
+        "Admin": {
+          "cert": "/keyfiles/peerOrganizations/user.auth.com/users/Admin@user.auth.com/msp/signcerts/Admin@user.auth.com-cert.pem",
+          "private_key": "/keyfiles/peerOrganizations/user.auth.com/users/Admin@user.auth.com/msp/keystore/priv_sk"
+        }
+      }
+    }
+  },
+  "orderers": {
+    "orderer1.auth.com": {
+      "url": "192.168.233.129:7006",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "orderer1.auth.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/ordererOrganizations/auth.com/orderers/orderer1.auth.com/tls/ca.crt"
+      }
+    },
+    "orderer2.auth.com": {
+      "url": "192.168.233.129:7007",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "orderer2.auth.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/ordererOrganizations/auth.com/orderers/orderer2.auth.com/tls/ca.crt"
+      }
+    }
+  },
+  "peers": {
+    "peer1.manufacturer.auth.com": {
+      "url": "192.168.233.129:7002",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer1.manufacturer.auth.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/manufacturer.auth.com/peers/peer1.manufacturer.auth.com/tls/ca.crt"
+      }
+    },
+    "peer1.user.auth.com": {
+      "url": "192.168.233.129:7003",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer1.user.auth.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/user.auth.com/peers/peer1.user.auth.com/tls/ca.crt"
+      }
+    }
+  },
+  "certificateAuthorities": {
+    "ca1.manufacturer.auth.com": {
+      "url": "https://192.168.233.129:7000",
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/manufacturer.auth.com/ca/ca1.manufacturer.auth.com-cert.pem"
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    },
+    "ca1.user.auth.com": {
+      "url": "https://192.168.233.129:7001",
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/user.auth.com/ca/ca1.user.auth.com-cert.pem"
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    }
+  }
+}

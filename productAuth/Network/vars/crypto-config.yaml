@@ -1,0 +1,41 @@
+---
+OrdererOrgs:
+  - Name: auth.com
+    Domain: auth.com
+    Specs:
+      - Hostname: orderer1
+        SANS:
+          - 192.168.233.129
+      - Hostname: orderer2
+        SANS:
+          - 192.168.233.129
+
+PeerOrgs:
+  - Name: manufacturer.auth.com
+    Domain: manufacturer.auth.com
+    EnableNodeOUs: true
+    CA:
+      Hostname: ca1
+      CommonName: ca1.manufacturer.auth.com
+      Country: US
+      Province: North Carolina
+      Locality: Raleigh
+    Specs:
+      - Hostname: peer1
+        CommonName: peer1.manufacturer.auth.com
+        SANS:
+          - 192.168.233.129
+  - Name: user.auth.com
+    Domain: user.auth.com
+    EnableNodeOUs: true
+    CA:
+      Hostname: ca1
+      CommonName: ca1.user.auth.com
+      Country: US
+      Province: North Carolina
+      Locality: Raleigh
+    Specs:
+      - Hostname: peer1
+        CommonName: peer1.user.auth.com
+        SANS:
+          - 192.168.233.129

@@ -1,0 +1,137 @@
+{
+  "allcas": [
+    {
+      "adminPassword": "adminpw",
+      "command": "fabric-ca-server start -b admin:adminpw --cfg.affiliations.allowremove --cfg.identities.allowremove",
+      "fullname": "ca1.manufacturer.auth.com",
+      "mspid": "manufacturer-auth-com",
+      "name": "ca1",
+      "oport": "8000",
+      "org": "manufacturer.auth.com",
+      "port": "7000",
+      "portmap": "-p 7000:7054 -p 8000:9443",
+      "type": "ca",
+      "url": "192.168.233.129"
+    },
+    {
+      "adminPassword": "adminpw",
+      "command": "fabric-ca-server start -b admin:adminpw --cfg.affiliations.allowremove --cfg.identities.allowremove",
+      "fullname": "ca1.user.auth.com",
+      "mspid": "user-auth-com",
+      "name": "ca1",
+      "oport": "8001",
+      "org": "user.auth.com",
+      "port": "7001",
+      "portmap": "-p 7001:7054 -p 8001:9443",
+      "type": "ca",
+      "url": "192.168.233.129"
+    }
+  ],
+  "allcouchdbs": [
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer1.manufacturer.auth.com.couchdb",
+      "mspid": "manufacturer-auth-com",
+      "name": "peer1.couchdb",
+      "org": "manufacturer.auth.com",
+      "port": "7004",
+      "portmap": "-p 7004:5984",
+      "type": "couchdb",
+      "url": "192.168.233.129"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer1.user.auth.com.couchdb",
+      "mspid": "user-auth-com",
+      "name": "peer1.couchdb",
+      "org": "user.auth.com",
+      "port": "7005",
+      "portmap": "-p 7005:5984",
+      "type": "couchdb",
+      "url": "192.168.233.129"
+    }
+  ],
+  "allorderers": [
+    {
+      "fullname": "orderer1.auth.com",
+      "mspid": "auth-com",
+      "name": "orderer1",
+      "oport": "8006",
+      "org": "auth.com",
+      "port": "7006",
+      "portmap": "-p 7006:7050 -p 8006:7060",
+      "type": "orderer",
+      "url": "192.168.233.129"
+    },
+    {
+      "fullname": "orderer2.auth.com",
+      "mspid": "auth-com",
+      "name": "orderer2",
+      "oport": "8007",
+      "org": "auth.com",
+      "port": "7007",
+      "portmap": "-p 7007:7050 -p 8007:7060",
+      "type": "orderer",
+      "url": "192.168.233.129"
+    }
+  ],
+  "allorgs": [
+    "auth.com",
+    "manufacturer.auth.com",
+    "user.auth.com"
+  ],
+  "allpeers": [
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer1.manufacturer.auth.com",
+      "mspid": "manufacturer-auth-com",
+      "name": "peer1",
+      "oport": "8002",
+      "org": "manufacturer.auth.com",
+      "port": "7002",
+      "portmap": "-p 7002:7051 -p 8002:7061",
+      "type": "peer",
+      "url": "192.168.233.129"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer1.user.auth.com",
+      "mspid": "user-auth-com",
+      "name": "peer1",
+      "oport": "8003",
+      "org": "user.auth.com",
+      "port": "7003",
+      "portmap": "-p 7003:7051 -p 8003:7061",
+      "type": "peer",
+      "url": "192.168.233.129"
+    }
+  ],
+  "caorgs": [
+    "manufacturer.auth.com",
+    "user.auth.com"
+  ],
+  "console_port": "7011",
+  "explorer_port": "7009",
+  "ordererorgs": [
+    "auth.com"
+  ],
+  "orgattrs": {
+    "auth.com": {
+      "certpath": "ordererOrganizations",
+      "mspid": "auth-com"
+    },
+    "manufacturer.auth.com": {
+      "certpath": "peerOrganizations",
+      "mspid": "manufacturer-auth-com"
+    },
+    "user.auth.com": {
+      "certpath": "peerOrganizations",
+      "mspid": "user-auth-com"
+    }
+  },
+  "peerorgs": [
+    "manufacturer.auth.com",
+    "user.auth.com"
+  ],
+  "portainer_port": "7010"
+}

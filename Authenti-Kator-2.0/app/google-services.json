@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "619891425640",
+    "project_id": "authenti-kator2",
+    "storage_bucket": "authenti-kator2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:619891425640:android:19ffa69ff069f0c473d6dd",
+        "android_client_info": {
+          "package_name": "com.example.authenti_kator20"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "619891425640-su3e74p27p0b9ih1e0ft7nhd1alojq52.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmb8ljuKkDjW0K9mdAqDwo9_w_z3nGYOo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "619891425640-su3e74p27p0b9ih1e0ft7nhd1alojq52.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

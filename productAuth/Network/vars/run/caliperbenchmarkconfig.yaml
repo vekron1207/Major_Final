@@ -1,0 +1,32 @@
+test:
+    name: productAuth-benchmark
+    description: productAuth benchmark
+    workers:
+      type: local
+      number: 1
+    rounds:
+      - label: productAuth test
+        description: productAuth benchmark
+        txDuration: 60
+        rateControl: 
+          type: fixed-load
+          opts:
+            transactionLoad: 300
+        workload:
+          module: /hyperledger/caliper/workspace/app/callback/app.js
+          arguments:
+            contractId: samplecc
+            randomSeed: 5000000
+            userID: Admin@manufacturer.auth.com
+    monitor:
+      type:
+        - process
+      process:
+        options:
+          - cpu-total
+          - cpu-system
+          - cpu-user
+          - mem
+          - net-up
+          - net-down
+        intervals: 1
