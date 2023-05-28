@@ -11,6 +11,7 @@ admin.initializeApp({
 
 const db = admin.database();
 const ref = db.ref('Nike_DB');
+console.log('Listening for changes on Firebase DB...');
 
 ref.on('child_changed', async (snapshot) => {
     const productKey = snapshot.key;
