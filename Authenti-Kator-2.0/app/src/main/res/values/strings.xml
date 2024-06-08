@@ -13,7 +13,7 @@
     <string name="login_sub_title">
         <font color="#00C9BB"><b>Login</b></font> if you already have an account with us.
     </string>
-    <string name="login_email">Enter Email or username</string>
+    <string name="login_email">Enter Email</string>
     <string name="enter_password">Enter Password</string>
     <string name="login_forgot_pw">Forgot Password?</string>
     <string name="login_havent_account">
@@ -45,7 +45,7 @@
         I don\'t have a key. <font color="#00C9BB"><b>Get Key</b></font>
     </string>
     <string name="home_title">Welcome to the <font color="#00C9BB">Authenticator</font>, Let\'s get you started.</string>
-    <string name="serialKey_title">Please enter you secret key.</string>
+    <string name="serialKey_title">Please enter your secret key.</string>
     <string name="serial_key">Serial key</string>
     <string name="serial_key_not_have">
         I don\'t have a Serial Key. <font color="#00C9BB"><b>Get Key</b></font>

@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:hint="@string/serial_key"
+            android:imeOptions="actionGo"
             style="@style/TextInputLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +46,8 @@
         app:layout_constraintBottom_toTopOf="@id/tv_have_key"
         android:text="@string/authenticate_btn_str"
         android:padding="10dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/secondaryColor"/>
 
     <TextView
         android:id="@+id/tv_have_key"
